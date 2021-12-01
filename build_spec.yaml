@@ -25,8 +25,18 @@ steps:
     command: |
       export BUILDRUN_HASH=`echo ${OCI_BUILD_RUN_ID} | rev | cut -c 1-7`
       echo "BUILDRUN_HASH: " $BUILDRUN_HASH
-      pwd
-      ls -ltr
+
+  - type: Command
+    name: "Function Build"
+    timeoutInSeconds: 40
+    command: |
+      cd ${OCI_PRIMARY_SOURCE_DIR}
+      fn build --working-dir fn-with-customImage --verbose
+      echo "
+      `docker images `
+      "
+       
+      
       
 
   
