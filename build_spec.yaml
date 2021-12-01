@@ -39,6 +39,9 @@ steps:
     command: |
       cd ${OCI_PRIMARY_SOURCE_DIR}/fn-with-customImage
       fn build  --verbose
+      echo "
+      `docker images`
+      "
 
       
 outputArtifacts:
