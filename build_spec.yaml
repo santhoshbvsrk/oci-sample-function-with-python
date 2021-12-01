@@ -30,9 +30,10 @@ steps:
     name: "Function Build"
     timeoutInSeconds: 40
     command: |
-      cd ${OCI_PRIMARY_SOURCE_DIR}
-      fn build --working-dir fn-with-customImage --verbose
+      cd ${OCI_PRIMARY_SOURCE_DIR}/fn-with-customImage
+      fn build  --verbose
       echo "
+      pwd;
       `docker images `
       "
        
