@@ -21,21 +21,21 @@ env:
 steps:
   - type: Command
     name: "Define unique image tag"
-    timeoutInSeconds: 40
+    timeoutInSeconds: 140
     command: |
       export BUILDRUN_HASH=`echo ${OCI_BUILD_RUN_ID} | rev | cut -c 1-7`
       echo "BUILDRUN_HASH: " $BUILDRUN_HASH
 
   - type: Command
     name: "Function Build Default Image"
-    timeoutInSeconds: 40
+    timeoutInSeconds: 6000
     command: |
       cd ${OCI_PRIMARY_SOURCE_DIR}/fn-with-defaultImage
       fn build  --verbose
 
   - type: Command
     name: "Function Build Custom Image"
-    timeoutInSeconds: 40
+    timeoutInSeconds: 6000
     command: |
       cd ${OCI_PRIMARY_SOURCE_DIR}/fn-with-customImage
       fn build  --verbose
