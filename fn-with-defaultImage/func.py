@@ -16,6 +16,6 @@ def handler(ctx, data: io.BytesIO=None):
     logging.getLogger().info("Invoked function with default  image")
     return response.Response(
         ctx, 
-        response_data=json.dumps({"status": "Hello World! with DefaultImage"}),
+        response_data=json.dumps({"status": "Hello World! with DefaultImage...updated by san"}),
         headers={"Content-Type": "application/json"}
     )
